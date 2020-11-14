@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'landing_page'
+    'landing_page',
+    'social_django',
+    'playlist_creation',
 ]
 
 MIDDLEWARE = [
@@ -101,6 +103,31 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/playlist_creation'
+
+# SOCIAL_AUTH_PIPELINE = (
+#     'social_core.pipeline.social_auth.social_details',
+#     'social_core.pipeline.social_auth.social_uid',
+#     'social_core.pipeline.social_auth.auth_allowed',
+#     'social_core.pipeline.social_auth.social_user',
+#     'social_core.pipeline.user.create_user',
+#     'social_core.pipeline.social_auth.associate_user',
+#     'social_core.pipeline.social_auth.load_extra_data',
+#     'social_core.pipeline.user.user_details',
+#     'integrations.pipeline.save_integration',
+#     'notifications.pipeline.create_default_notifications',
+# )
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.deezer.DeezerOAuth2',
+)
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+SOCIAL_AUTH_DEEZER_KEY = '445642'
+SOCIAL_AUTH_DEEZER_SECRET = '8ec005397497a92b3063f8c5f1ebabe9'
+
+SOCIAL_AUTH_DEEZER_SCOPE = ['basic_access', 'email', 'manage_library']
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

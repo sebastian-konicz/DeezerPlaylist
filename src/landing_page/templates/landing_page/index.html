@@ -1,15 +1,30 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Deeezer Playlist from Excel</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 </head>
 <body>
-     <div>
-         <h1>Create Deezer playlist form Excel file</h1>
-     </div>
-     <div>
-        <p>After login to you Deezer account below you can upload an Excel file with the songs to creat your own custom playlist</p>
-    </div>
+     <header class="header">
+         <h1 class="header-text">Create deezer playlist form Excel file</h1>
+     </header>
+     <section class="landing-section landing-main">
+      <div class="landing-section-content">
+          <p class="landing-main-text">
+            Got tired of creating playlist manually?
+            <br>
+            You have found a perfect solution...
+            <br>
+            Login to your Deezer account below and upload an Excel file with the songs to create your own custom playlist
+          </p>
+          <button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-user"></span><a href="{% url 'social:begin' 'deezer' %}">Deezer Login</a> </button>
+      </div>
+    </section>
 </body>
 </html>
